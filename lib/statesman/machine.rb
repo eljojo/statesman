@@ -189,7 +189,7 @@ module Statesman
 
     def current_state
       last_action = last_transition
-      last_action ? last_action.to_state : self.class.initial_state
+      last_action ? last_action.to_state : initial_state
     end
 
     def allowed_transitions
@@ -313,6 +313,10 @@ module Statesman
 
     def to_s_or_nil(input)
       input.nil? ? input : input.to_s
+    end
+
+    def initial_state
+      self.class.initial_state
     end
   end
 end
